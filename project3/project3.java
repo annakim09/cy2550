@@ -75,6 +75,10 @@ public class project3{
             break;
       }  
     }
+    for (int i = 0; i < words; i++) {
+      int rand = (int) (lines * Math.random());
+      pass.add(wordList.get(rand));
+  }
    
     for (int i = 0; i < numbers; i++) {
       int rand1 = (int)(2 * Math.random());
@@ -115,10 +119,7 @@ public class project3{
         pass.set(rand, str);
     }
 
-    for (int i = 0; i < words; i++) {
-        int rand = (int) (lines * Math.random());
-        pass.add(wordList.get(rand));
-    }
+  
 
     for (int i = 0; i < pass.size(); i++) {
       System.out.print(pass.get(i));
