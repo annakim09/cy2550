@@ -58,6 +58,14 @@ public class project3{
               + "                          (default=0)");
           break;
 
+        case "-w":
+        case "--words":
+          words = Integer.parseInt(input.next());
+          break;
+        case "-c":
+        case "--caps":
+          capitals += Integer.parseInt(input.next());
+          break;  
         case "-n":
         case "--numbers":
           numbers += Integer.parseInt(input.next());
@@ -65,21 +73,21 @@ public class project3{
         case "-s":
         case "--symbols":
           symbols += Integer.parseInt(input.next());
-        case "-w":
-        case "--words":
-            words = Integer.parseInt(input.next());
-            break;
-          case "-c":
-          case "--caps":
-            capitals += Integer.parseInt(input.next());
-            break;
       }  
     }
     for (int i = 0; i < words; i++) {
       int rand = (int) (lines * Math.random());
       pass.add(wordList.get(rand));
   }
-   
+
+
+    for (int i = 0; i < capitals; i++) {
+        int rand = (int)(pass.size() * Math.random());
+        String str = pass.get(rand);
+        str = str.substring(0,1).toUpperCase() + str.substring(1);
+        pass.set(rand, str);
+    }
+
     for (int i = 0; i < numbers; i++) {
       int rand1 = (int)(2 * Math.random());
       int rand2 = (int)(pass.size() * Math.random());
@@ -112,14 +120,6 @@ public class project3{
       }
     }
 
-    for (int i = 0; i < capitals; i++) {
-        int rand = (int)(pass.size() * Math.random());
-        String str = pass.get(rand);
-        str = str.substring(0,1).toUpperCase() + str.substring(1);
-        pass.set(rand, str);
-    }
-
-  
 
     for (int i = 0; i < pass.size(); i++) {
       System.out.print(pass.get(i));
